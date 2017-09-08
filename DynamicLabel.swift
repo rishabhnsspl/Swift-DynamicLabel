@@ -25,11 +25,11 @@ class DynamicLabel: UILabel {
     
     func makeWithDynamicHeight() {
         self.numberOfLines = 0
-        let newHeight = self.getStringHeight(mytext: self.text!, fontSize: self.font.pointSize, width: self.bounds.width)
+        let newHeight = self.calculateStringHeight(mytext: self.text!, fontSize: self.font.pointSize, width: self.bounds.width)
         self.bounds = CGRect(x: 0, y: 0, width: self.bounds.width, height: newHeight)
     }
     
-    private func getStringHeight(mytext: String, fontSize: CGFloat, width: CGFloat)->CGFloat {
+    private func calculateStringHeight(mytext: String, fontSize: CGFloat, width: CGFloat)->CGFloat {
         let font = UIFont.systemFont(ofSize: fontSize)
         let size = CGSize(width: width, height: .greatestFiniteMagnitude)
         let paragraphStyle = NSMutableParagraphStyle()
